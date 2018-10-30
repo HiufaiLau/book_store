@@ -1,3 +1,79 @@
+function getSearch() {
+ console.log('hello');
+ let searchtxt = document.getElementById("myInput").value;
+ console.log(searchtxt);
+ fetch("https://api.myjson.com/bins/udbm5")
+  .then(function (response) {
+   return response.json();
+  })
+  .then(function (myJson) {
+   let data = myJson.books;
+   let template = "";
+   let filterTheBook = data.filter(book => book.titulo.toLowerCase().includes(searchtxt.toLowerCase()));
+   console.log(filterTheBook);
+   filterTheBook.forEach(oneBook => {
+    template += //template +
+     `
+    <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+		<div class="flipper">
+			<div class="front">
+				<div>
+                  <img src="${ oneBook.portada}" height="400" width="250"> 
+                </div>
+			</div>
+			<div class="back">
+				<div>
+                   <h1 class="title">${oneBook.titulo}</h1>
+                   <p>${oneBook.descripcion}</p>
+                   <span><a href="${oneBook.detalle}">More Info</a></span>
+                </div>
+			</div>
+		</div>
+	</div> 
+    `
+   })
+
+   document.getElementById('books').innerHTML = template;
+  })
+
+}
+getSearch();
+
+//function slideShow() {
+//
+// var slideIndex = 1;
+// showSlides(slideIndex);
+//
+// // Next/previous controls
+// function plusSlides(n) {
+//  showSlides(slideIndex += n);
+// }
+//
+// function currentSlide(n) {
+//  showSlides(slideIndex = n);
+// }
+//
+// function showSlides(n) {
+//  var i;
+//  var slides = document.getElementsByClassName("mySlides");
+//  if (n > slides.length) {
+//   slideIndex = 1
+//  }
+//  if (n < 1) {
+//   slideIndex = slides.length
+//  }
+//  for (i = 0; i < slides.length; i++) {
+//   slides[i].style.display = "none";
+//  }
+//  for (i = 0; i < dots.length; i++) {
+//   dots[i].className = dots[i].className.replace(" active", "");
+//  }
+//  slides[slideIndex - 1].style.display = "block";
+//  dots[slideIndex - 1].className += " active";
+// }
+//}
+
+
 //showing the book images
 //function showBooks(data) {
 // data.forEach(function (book) {
@@ -74,43 +150,3 @@
 //  console.log(a);
 // });
 //}
-
-function getSearch(){
- console.log('hello');
-    let searchtxt = document.getElementById("myInput").value;
- console.log(searchtxt);
-  fetch("https://api.myjson.com/bins/udbm5")
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (myJson) {
-    let data = myJson.books;
-      let template = "";
- let data2 = data.filter(book=>book.titulo.toLowerCase().includes(searchtxt.toLowerCase()));
-   console.log(data2);
- data2.forEach(oneBook => {
-   template += //template +
-    `
-    <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
-		<div class="flipper">
-			<div class="front">
-				<div>
-                  <img src="${ oneBook.portada}" height="400" width="250"> 
-                </div>
-			</div>
-			<div class="back">
-				<div>
-                   <h1 class="title">${oneBook.titulo}</h1>
-                   <p>${oneBook.descripcion}</p>
-                   <a href="${oneBook.detalle}">More Info</a>
-                </div>
-			</div>
-		</div>
-	</div> 
-    `
- })
-
- document.getElementById('books').innerHTML = template;
-})
-        }
-        getSearch();
