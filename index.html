@@ -6,17 +6,28 @@
 	<title>Book Store</title>
 	<link rel="stylesheet" type="text/css" href="books.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
 </head>
 
 <body>
-
-
-	<div class="container">
-		<div id="img-container" onclick="slide();">
+	<label for="">Search the Book</label>
+	<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+	
+	<div id="books"></div>
+	
+<!--
+	<div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+		<div class="flipper">
+			<div class="front">
+				<div id="img-container" onmouse></div>;
+			</div>
+			<div class="back">
+						onClick="changeEventHandler()"
+				<div class="bookInformation"></div>
+			</div>
 		</div>
-		<div class="bookInformation"></div>
 	</div>
-
+-->
 	<div class="card-footer text-center mt-3 mb-3 bg-secondary text-white rounded-0">
 		&copy;2016 TGIF | All Rights reserved
 	</div>

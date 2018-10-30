@@ -5,8 +5,9 @@ fetch("https://api.myjson.com/bins/udbm5")
   .then(function (myJson) {
     var data = myJson.books;
     console.log(data);
-    showBooks(data);
-    bookInfo(data);
+//    showBooks(data);
+//    bookInfo(data);
+      printBooks(data)
 //    moreInfo(data);
   });
 //	.then(function (res) {
