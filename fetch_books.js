@@ -1,15 +1,27 @@
+function fetchData(){
 fetch("https://api.myjson.com/bins/udbm5")
   .then(function (response) {
     return response.json();
   })
   .then(function (myJson) {
-    var data = myJson.books;
+    let data = myJson.books;
     console.log(data);
 //    showBooks(data);
 //    bookInfo(data);
-      printBooks(data)
+      printBooks(data);
+//  let arr = myFunction();
+//  console.log(arr);
+
 //    moreInfo(data);
   });
+  }
+
+//function myFunction() {
+//  let books = document.getElementById("books").getElementsByTagName("h1");
+//  console.log(books);
+//  var arr = Array.prototype.slice.call( books );
+//   
+//}
 //	.then(function (res) {
 //		myMembers = res.results[0].members;
 //		if (document.title == "House") {
