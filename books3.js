@@ -15,22 +15,50 @@ function getSearch() {
     template += //template +
      `
     <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
-      	
-		<div class="flipper d-flex flex-wrap  mt-3 mb-3 align-items-center justify-content-start">
-		
+		<div class="flipper">
 			<div class="front">
+				<div>
                   <img src="${ oneBook.portada}" height="400" width="250"> 
+                </div>
 			</div>
 			<div class="back">
+				<div>
                    <h1 class="title">${oneBook.titulo}</h1>
                    <p>${oneBook.descripcion}</p>
-                   
-                    <button id="${ index }" type="button" value="${oneBook.detalle}" class=" books btn btn-info btn-lg" data-toggle="modal" data-target="#exampleModal" onClick="putImgInModal(event)">More Info</button>
-                                 
+                   <button class="info"><a href="${oneBook.detalle}">More Info  </a></button>
+
+<div class="container">
+ 
+  <!-- Trigger the modal with a button -->
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-body">
+<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Phoenicopterus_ruber_in_S%C3%A3o_Paulo_Zoo.jpg" width="200" height="200">
+
+<a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+
+
+                </div>
 			</div>
 		</div>
-		
-	</div>
+	</div> 
     `
    })
 
@@ -39,19 +67,7 @@ function getSearch() {
 }
 getSearch();
 
-function putImgInModal(event){
-// event.forEach(function (book) {;
-   if(!Array.isArray(event)){
-    
-    console.log(event.target.value)
- var index = event.target.id;
- var img = document.createElement('img').setAttribute('src', index)
- document.querySelector('#modal-body').append(img);
-  document.querySelector('#modal-body').innerHTML="";
-   }
- 
-// });
-}
+
 
 
 //showing the book images

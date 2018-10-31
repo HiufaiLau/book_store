@@ -1,3 +1,4 @@
+/*flipping the books*/
 /* entire container, keeps perspective */
 .flip-container {
 	perspective: 1000px;
@@ -40,9 +41,5 @@
 .back {
 	transform: rotateY(180deg);
 }
-
-
-
-
 
 
