@@ -1,6 +1,7 @@
 function getSearch() {
  console.log('hello');
  let searchtxt = document.getElementById("myInput").value;
+
  console.log(searchtxt);
  fetch("https://api.myjson.com/bins/udbm5")
   .then(function (response) {
@@ -25,8 +26,7 @@ function getSearch() {
                    <h1 class="title">${oneBook.titulo}</h1>
                    <p>${oneBook.descripcion}</p>
                    
-                    <button id="${ index }" type="button" value="${oneBook.detalle}" class=" books btn btn-info btn-lg" data-toggle="modal" data-target="#exampleModal" onClick="putImgInModal(event)">More Info</button>
-                                 
+                    <button id="${index}" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#exampleModal" data-link="${oneBook.detalle}" onClick="putImgInModal(event)">More Info</button>
 			</div>
 		</div>
 		
@@ -40,16 +40,24 @@ function getSearch() {
 getSearch();
 
 function putImgInModal(event){
-// event.forEach(function (book) {;
-   if(!Array.isArray(event)){
-    
-    console.log(event.target.value)
- var index = event.target.id;
- var img = document.createElement('img').setAttribute('src', index)
- document.querySelector('#modal-body').append(img);
-  document.querySelector('#modal-body').innerHTML="";
-   }
+ console.log(event.target.id);
+ console.log(event.target.dataset.link);
+ var link = event.target.dataset.link;
+ console.log("" + link)
  
+ let img = document.createElement('img');
+ img.setAttribute("src", link);
+ console.log(img)
+ document.getElementById('modal-body').append(img);
+//  document.querySelector('#modal-body').innerHTML="";
+img.innerHTML="";
+// event.forEach(function (book) {;
+//  
+// let index = book.target.id;
+// let img = document.createElement('img').setAttribute('src', `${[index].detalle}`)
+// document.querySelector('#modal-body').append(img);
+// document.querySelector('#modal-body').innerHTML="";
+//// let bookDetails =  document.getElementById('#modal-body').index[0];
 // });
 }
 
