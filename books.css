@@ -5,11 +5,13 @@
 	/* flip the pane when hovered */
 	.flip-container:hover .flipper, .flip-container.hover .flipper {
 		transform: rotateY(180deg);
+	
 	}
 
 .flip-container, .front, .back {
 	width: 320px;
 	height: 480px;
+	margin-bottom: -6%;
 }
 
 /* flip speed goes here */
@@ -42,7 +44,33 @@
 }
 
 
+#modal-body img{
+	margin-bottom: 5%;
+	margin-top: 5%;
+	   margin-left: 6%;
+/*    margin-right: auto;*/
+	
+	  border-radius: 8px;
+	 width: 440px;
+	height: 480px;
+}
 
 
+#books{
+	margin-left: 7%;
 
+	
+}
 
+.navbar{
+	margin-left:7.5%;
+	margin-top:3%;
+}
+
+.line{
+	margin-top: 0%;
+}
+
+input{
+	margin-left:-3%; 
+}

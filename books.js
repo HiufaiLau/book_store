@@ -17,10 +17,10 @@ function getSearch() {
      `
     <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
       	
-		<div class="flipper d-flex flex-wrap  mt-3 mb-3 align-items-center justify-content-start">
+		<div class="flipper d-flex flex-wrap  align-items-center justify-content-start">
 		
 			<div class="front">
-                  <img src="${ oneBook.portada}" height="400" width="250"> 
+                  <img src="${ oneBook.portada}" height="400" width="300"> 
 			</div>
 			<div class="back">
                    <h1 class="title">${oneBook.titulo}</h1>
@@ -40,17 +40,21 @@ function getSearch() {
 getSearch();
 
 function putImgInModal(event){
+ document.querySelector('#modal-body').innerHTML="";
  console.log(event.target.id);
  console.log(event.target.dataset.link);
  var link = event.target.dataset.link;
  console.log("" + link)
- 
+// link.innerHTML="";
  let img = document.createElement('img');
  img.setAttribute("src", link);
  console.log(img)
- document.getElementById('modal-body').append(img);
+ 
+document.querySelector('#modal-body').appendChild(img);
+
+ 
 //  document.querySelector('#modal-body').innerHTML="";
-img.innerHTML="";
+//img.innerHTML="";
 // event.forEach(function (book) {;
 //  
 // let index = book.target.id;
